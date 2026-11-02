@@ -1,2 +1,3 @@
-const greet = (name: string): string => `Work Order Tracker API: hello ${name}!`;
-console.log(greet("World"));
+import { canTransition } from "./domain/workOrder";
+console.log(canTransition("INTAKE", "IN_PROGRESS")); // true
+console.log(canTransition("INTAKE", "DONE"));        // false
