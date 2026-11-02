@@ -1,0 +1,12 @@
+services:
+  db:
+    image: postgres:17
+    environment:
+      POSTGRES_USER: wot
+      POSTGRES_PASSWORD: wot
+      POSTGRES_DB: wot
+    ports: ["5432:5432"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U wot"]
+      interval: 5s
+      retries: 10
