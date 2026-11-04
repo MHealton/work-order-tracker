@@ -19,6 +19,7 @@ model Customer {
   id         String      @id @default(uuid())
   name       String
   email      String
+  phone      String?
   workOrders WorkOrder[]
 }
 

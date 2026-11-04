@@ -6,14 +6,23 @@ GET {{base}}/health
 ### List customers (copy an id for the requests below)
 GET {{base}}/customers
 
+### 
+GET {{base}}/customers/nope/work-orders
+
+###
+POST {{base}}/customers
+Content-Type: application/json
+
+{ "name": "Joseph Schmidt", "email": "joseph.schmidt@test.com", "phone": 9163220989}
+
 ### Create a work order
 POST {{base}}/work-orders
 Content-Type: application/json
 
-{ "customerId": "PASTE_CUSTOMER_ID", "jobType": "repair", "formData": { "issue": "Loose jack", "urgency": "rush" } }
+{ "customerId": "e6fb67b8-c0a6-467a-9d43-d24265adb83f", "jobType": "repair", "formData": { "description": "Loose jack", "urgency": "rush" } }
 
 ### Illegal transition, expect 409
-PATCH {{base}}/work-orders/PASTE_WORK_ORDER_ID/status
+PATCH {{base}}/work-orders/0ce71744-bf83-415e-baf9-2f03d562efa8/status
 Content-Type: application/json
 
 { "status": "DONE" }
