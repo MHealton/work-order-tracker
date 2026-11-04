@@ -1,10 +1,4 @@
-import { StatusChange } from "./domain/workOrder";
+import { buildApp } from "./app";
 
-const input: unknown = JSON.parse('{"status":"DONE"}');
-const result = StatusChange.safeParse(input);
-
-if (result.success) {
-  console.log("Valid:", result.data.status);
-} else {
-  console.log("Invalid:", result.error.issues);
-}
+const app = await buildApp();
+await app.listen({ port: Number(process.env.PORT ?? 3000) });

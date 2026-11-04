@@ -1,0 +1,19 @@
+@base = http://localhost:3000
+
+### Health
+GET {{base}}/health
+
+### List customers (copy an id for the requests below)
+GET {{base}}/customers
+
+### Create a work order
+POST {{base}}/work-orders
+Content-Type: application/json
+
+{ "customerId": "PASTE_CUSTOMER_ID", "jobType": "repair", "formData": { "issue": "Loose jack", "urgency": "rush" } }
+
+### Illegal transition, expect 409
+PATCH {{base}}/work-orders/PASTE_WORK_ORDER_ID/status
+Content-Type: application/json
+
+{ "status": "DONE" }

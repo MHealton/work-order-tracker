@@ -30,3 +30,9 @@ export function canTransition(from: Status, to: Status): boolean {
 export function isTerminal(status: Status): boolean {
     return allowedTransitions[status].length === 0;
 };
+
+export const CreateWorkOrder = z.object({
+    customerId: z.string().min(1),
+    jobType: z.string().min(1),
+    formData: z.unknown(),
+});
